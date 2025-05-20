@@ -52,8 +52,7 @@ public class UserRoleResource implements IManagementResource<UserRoleDTO,Long> {
     @Override
     public ResponseEntity<Response> add(@Valid @RequestBody UserRoleDTO request) {
         log.info("Admin User Role: call the api add user role");
-        UserRole userRole = new UserRole(request.getRoleName());
-        UserRole target = userRoleRepository.save(userRole);
+        UserRole target = userRoleRepository.save(request.toObject());
         return ResponseEntity.ok(new Response(
                 HttpStatus.OK.value(),
                 "Add user role successfully",
