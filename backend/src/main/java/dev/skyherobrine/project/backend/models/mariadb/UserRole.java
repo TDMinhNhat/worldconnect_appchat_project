@@ -2,8 +2,6 @@ package dev.skyherobrine.project.backend.models.mariadb;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -15,9 +13,7 @@ public class UserRole {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "role_name", nullable = false, unique = true, length = 100) @NonNull
-    @NotNull(message = "The role name can't be null")
-    @NotBlank(message = "The role name can't be empty")
+    @NonNull
     private String roleName;
 
     @Column(nullable = false)
@@ -29,6 +25,7 @@ public class UserRole {
 
     @PrePersist
     public void prePersist() {
-        status = true;
+        this.dateCreated = LocalDateTime.now();
+        this.status = true;
     }
 }
