@@ -1,11 +1,8 @@
 package dev.skyherobrine.project.backend.models.mongodb;
 
 import dev.skyherobrine.project.backend.models.mariadb.User;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -18,14 +15,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class GroupChat {
     @MongoId
-    @NotNull(message = "The group chat id is required!")
-    @NotBlank(message = "The group chat id is required!")
     private Long id;
 
-    @NotNull(message = "Must be having a group to know where to send the message!")
     private Group group;
 
-    @NotNull(message = "Must be having a owner to know who sent the message!")
     private User owner;
 
     private String message;

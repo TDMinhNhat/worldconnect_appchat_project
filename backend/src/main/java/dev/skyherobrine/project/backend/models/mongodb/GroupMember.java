@@ -5,7 +5,6 @@ import dev.skyherobrine.project.backend.enums.GroupMemberRole;
 import dev.skyherobrine.project.backend.enums.GroupMemberStatus;
 import dev.skyherobrine.project.backend.keys.GroupMemberKey;
 import dev.skyherobrine.project.backend.models.mariadb.User;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,10 +20,8 @@ import java.time.LocalDateTime;
 public class GroupMember {
 
     @MongoId
-    @NotNull(message = "The group member id can't be null")
     private GroupMemberKey id;
 
-    @NotNull(message = "The member in the group must be assigned a role")
     private GroupMemberRole role;
 
     @Field(name = "user_response_join")
@@ -41,7 +38,6 @@ public class GroupMember {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateUpdated;
 
-    @NotNull(message = "The member in the group must have a status")
     private GroupMemberStatus status;
 
     public GroupMember(GroupMemberKey id, GroupMemberRole role, GroupMemberStatus status) {

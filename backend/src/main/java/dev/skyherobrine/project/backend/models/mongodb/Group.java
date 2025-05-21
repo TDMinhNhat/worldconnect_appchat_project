@@ -1,13 +1,8 @@
 package dev.skyherobrine.project.backend.models.mongodb;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import dev.skyherobrine.project.backend.models.mariadb.User;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -20,13 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Group {
     @MongoId
-    @NotNull(message = "The group id is required!")
-    @NotBlank(message = "The group id can't be blank or empty")
     private Long id;
 
-    @NotNull(message = "The group must have a name!")
-    @NotBlank(message = "The group name can't be blank or empty")
-    @Size(max = 100, message = "The group name can't be longer than 100 characters")
     private String name;
 
     private String description;
