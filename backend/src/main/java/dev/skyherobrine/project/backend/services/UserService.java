@@ -1,4 +1,4 @@
-package dev.skyherobrine.project.backend.services.admins;
+package dev.skyherobrine.project.backend.services;
 
 import dev.skyherobrine.project.backend.dtos.UserDTO;
 import dev.skyherobrine.project.backend.models.mariadb.User;
@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public User addUser(UserDTO request) {
-        log.info("Admin User Service: call the service add user");
+        log.info("User Service: call the service add user");
         UserRole userRole = userRoleRepository.findById(request.getRoleId()).orElseThrow(() -> new EntityNotFoundException("The role with id " + request.getRoleId() + " wasn't found"));
 
         User user = new User(

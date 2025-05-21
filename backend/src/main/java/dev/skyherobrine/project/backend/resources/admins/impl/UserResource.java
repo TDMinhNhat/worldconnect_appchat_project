@@ -7,7 +7,7 @@ import dev.skyherobrine.project.backend.models.Response;
 import dev.skyherobrine.project.backend.models.mariadb.User;
 import dev.skyherobrine.project.backend.repositories.mariadb.UserRepository;
 import dev.skyherobrine.project.backend.resources.admins.IManagementResource;
-import dev.skyherobrine.project.backend.services.admins.UserService;
+import dev.skyherobrine.project.backend.services.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

@@ -66,6 +66,9 @@ public class User {
     @NotNull(message = "The role can't be null")
     private UserRole role;
 
+    @Column(name = "account_verified", nullable = false)
+    private boolean accountVerified;
+
     @Column(name = "date_created", nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateCreated;
@@ -88,6 +91,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.accountVerified = false;
     }
 
     @PrePersist
