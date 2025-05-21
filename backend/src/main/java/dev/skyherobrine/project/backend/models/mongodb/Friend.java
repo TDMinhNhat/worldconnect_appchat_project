@@ -1,6 +1,7 @@
 package dev.skyherobrine.project.backend.models.mongodb;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.skyherobrine.project.backend.enums.FriendStatus;
 import dev.skyherobrine.project.backend.models.mariadb.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,9 +28,6 @@ public class Friend {
     @NotNull(message = "The recipient add friend can't be null")
     private User recipient;
 
-    @NotNull(message = "The accepted status can't be null")
-    private boolean accepted;
-
     @Field(name = "created_at")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
@@ -38,11 +36,13 @@ public class Friend {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    public Friend(Long id, User sender, User recipient, boolean accepted) {
+    private FriendStatus status;
+
+    public Friend(Long id, User sender, User recipient) {
         this.id = id;
         this.sender = sender;
         this.recipient = recipient;
-        this.accepted = accepted;
+        this.status = FriendStatus.PENDING;
         this.createdAt = this.updatedAt = LocalDateTime.now();
     }
 }
