@@ -2,6 +2,7 @@ package dev.skyherobrine.project.backend.resources.admins.impl;
 
 import dev.skyherobrine.project.backend.dtos.UserDTO;
 import dev.skyherobrine.project.backend.enums.UserStatus;
+import dev.skyherobrine.project.backend.exceptions.RequestParamException;
 import dev.skyherobrine.project.backend.models.Response;
 import dev.skyherobrine.project.backend.models.mariadb.User;
 import dev.skyherobrine.project.backend.repositories.mariadb.UserRepository;
@@ -30,12 +31,13 @@ public class UserResource implements IManagementResource<UserDTO, Long> {
 
     @GetMapping
     @Override
-    public ResponseEntity<Response> getAll(Integer page, Integer size) {
+    public ResponseEntity<Response> getAll(@RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
         log.info("Admin User: call the api get all users");
+        if(size == null)  throw new RequestParamException("The size parameter is required");
         return ResponseEntity.ok(new Response(
                 HttpStatus.OK.value(),
                 "Get all the users by page and size",
-                userRepository.findAll(Pageable.ofSize(size).withPage(page - 1))
+                userRepository.findAll(Pageable.ofSize(size == null ? null : size).withPage(page == null ? 0 : page))
         ));
     }
 
