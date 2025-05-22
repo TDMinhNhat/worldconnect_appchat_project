@@ -5,6 +5,7 @@ import dev.skyherobrine.project.backend.models.Response;
 import dev.skyherobrine.project.backend.models.mariadb.User;
 import dev.skyherobrine.project.backend.repositories.mariadb.UserRepository;
 import dev.skyherobrine.project.backend.services.UserService;
+import dev.skyherobrine.project.backend.utils.EncodeDecodeUtil;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +44,11 @@ public class AuthenticateResource {
             @RequestParam String password
     ) {
         log.info("Authenticate: call the api login account");
-        User user = userRepository.findByEmailOrUsernameAndPassword(account, account, password).orElseThrow(() -> new EntityNotFoundException("The email or username and password isn't corrected"));
+        User user = userRepository.findByEmailOrUsernameAndPassword(
+                EncodeDecodeUtil.encode(account),
+                EncodeDecodeUtil.encode(account),
+                EncodeDecodeUtil.encode(password)
+        ).orElseThrow(() -> new EntityNotFoundException("The email or username and password isn't corrected"));
         return ResponseEntity.ok(new Response(
                 HttpStatus.OK.value(),
                 "Login account successfully",
