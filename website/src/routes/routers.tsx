@@ -2,6 +2,7 @@ import {createBrowserRouter} from "react-router";
 import HomePage from "../pages/HomePage.tsx";
 import LoginPage from "../pages/LoginPage.tsx";
 import RegisterPage from "../pages/RegisterPage.tsx";
+import DashboardChatPage from "../pages/DashboardChatPage.tsx";
 
 const routers = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const routers = createBrowserRouter([
     {
         path: "/register",
         element: <RegisterPage />
+    },
+    {
+        path: "/chat",
+        element: <DashboardChatPage />
     }
 ])
 

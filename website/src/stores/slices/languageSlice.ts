@@ -1,6 +1,7 @@
+import { createSlice } from "@reduxjs/toolkit";
 import english from "../../languages/english.json";
 
-export const languageSlice=  {
+export const languageSlice =  createSlice({
     name: 'language',
     initialState: english,
     reducers: {
@@ -8,7 +9,7 @@ export const languageSlice=  {
             state = action.payload;
         }
     }
-}
+});
 
-export const { setLanguage } = languageSlice.reducers;
-export default languageSlice.reducers;
+export const { setLanguage } = languageSlice.actions;
+export default languageSlice.reducer;

@@ -6,6 +6,17 @@
 
   },
   "register_page": {
-
+    "title": "Register Account",
+    "first_name_label": "First Name",
+    "last_name_label": "Last Name",
+    "sex_label": "Sex",
+    "address_label": "Address",
+    "phone": "Phone",
+    "email_label": "Email",
+    "username": "Username",
+    "password_label": "Password"
+  },
+  "dashboard_chat_page": {
+    
   }
 }
