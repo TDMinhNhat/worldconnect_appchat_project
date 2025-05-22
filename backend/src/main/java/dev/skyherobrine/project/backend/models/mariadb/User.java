@@ -21,49 +21,30 @@ public class User {
     private Long id;
 
     @Column(name = "first_name", nullable = false, length = 100) @NonNull
-    @NotNull(message = "The first name can't be null")
-    @NotBlank(message = "The first name can't be empty")
-    @Size(max = 100, message = "The first name can't be longer than 100 characters")
     private String firstName;
 
     @Column(name = "last_name", nullable = false, length = 100) @NonNull
-    @NotNull(message = "The last name can't be null")
-    @NotBlank(message = "The last name can't be empty")
-    @Size(max = 100, message = "The last name can't be longer than 100 characters")
     private String lastName;
 
     @Column(nullable = false) @NonNull
-    @NotNull(message = "The sex can't be null")
-    @NotBlank(message = "The sex can't be empty")
     private Boolean sex;
 
     @Column(nullable = false, unique = true, length = 30) @NonNull
-    @NotNull(message = "The phone can't be null")
-    @NotBlank(message = "The phone can't be empty")
-    @Size(max = 30, min = 10, message = "The phone can't be longer than 30 digits and shorter than 10 digits")
     private String phone;
 
     @Column(length = 500)
     private String address;
 
     @Column(nullable = false, unique = true, length = 200) @NonNull
-    @NotNull(message = "The email can't be null")
-    @NotBlank(message = "The email can't be empty")
-    @Email(message = "The email isn't valid", regexp = ".+@.+\\..+")
     private String email;
 
     @Column(nullable = false, unique = true, length = 100) @NonNull
-    @NotNull(message = "The username can't be null")
-    @NotBlank(message = "The username can't be empty")
     private String username;
 
     @Column(nullable = false, length = 100) @NonNull
-    @NotNull(message = "The password can't be null")
-    @NotBlank(message = "The password can't be empty")
     private String password;
 
     @ManyToOne @JoinColumn(name = "role_id", nullable = false) @NonNull
-    @NotNull(message = "The role can't be null")
     private UserRole role;
 
     @Column(name = "account_verified", nullable = false)
