@@ -7,14 +7,52 @@
   },
   "register_page": {
     "title": "Register Account",
-    "first_name_label": "First Name",
-    "last_name_label": "Last Name",
-    "sex_label": "Sex",
-    "address_label": "Address",
-    "phone": "Phone",
-    "email_label": "Email",
-    "username": "Username",
-    "password_label": "Password"
+    "first_name": {
+      "label": "First Name",
+      "placeholder": "Enter your first name",
+      "error": "First name must be existed, contains only letters and maximum 100 characters"
+    },
+    "last_name": {
+      "label": "Last Name",
+      "placeholder": "Enter your last name",
+      "error": "Last name must be existed, contains only letters and maximum 100 characters"
+    },
+    "sex": {
+      "label": "Sex",
+      "male_label": "Male",
+      "female_label": "Female"
+    },
+    "address": {
+      "label": "Address",
+      "placeholder": "Enter your address"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "Enter your phone number",
+      "error": "Phone number must be existed and valid"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "error": "Email must be existed and valid"
+    },
+    "username": {
+      "label": "Username",
+      "placeholder": "Enter your username",
+      "error": "Username must be existed and maximum 100 characters"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "error": "Password must be existed and at least 6 characters"
+    },
+    "confirm_password": {
+      "label": "Confirm Password",
+      "placeholder": "Enter your password again",
+      "error": "Password must be matched"
+    },
+    "term_of_use_checkbox": "Click here to agree to the terms of use of the application",
+    "btn_register": "Create Account"
   },
   "dashboard_chat_page": {
     
