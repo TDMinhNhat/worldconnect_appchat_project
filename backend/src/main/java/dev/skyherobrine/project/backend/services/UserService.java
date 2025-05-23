@@ -5,6 +5,7 @@ import dev.skyherobrine.project.backend.models.mariadb.User;
 import dev.skyherobrine.project.backend.models.mariadb.UserRole;
 import dev.skyherobrine.project.backend.repositories.mariadb.UserRepository;
 import dev.skyherobrine.project.backend.repositories.mariadb.UserRoleRepository;
+import dev.skyherobrine.project.backend.utils.EncodeDecodeUtil;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,9 +32,9 @@ public class UserService {
                 request.getSex(),
                 request.getPhone(),
                 request.getAddress(),
-                request.getEmail(),
-                request.getUsername(),
-                request.getPassword(),
+                EncodeDecodeUtil.encode(request.getEmail()),
+                EncodeDecodeUtil.encode(request.getUsername()),
+                EncodeDecodeUtil.encode(request.getPassword()),
                 userRole
         );
 
@@ -50,9 +51,9 @@ public class UserService {
         user.setSex(request.getSex());
         user.setPhone(request.getPhone());
         user.setAddress(request.getAddress());
-        user.setEmail(request.getEmail());
-        user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword());
+        user.setEmail(EncodeDecodeUtil.encode(request.getEmail()));
+        user.setUsername(EncodeDecodeUtil.encode(request.getUsername()));
+        user.setPassword(EncodeDecodeUtil.encode(request.getPassword()));
         user.setRole(userRole);
 
         return userRepository.save(user);

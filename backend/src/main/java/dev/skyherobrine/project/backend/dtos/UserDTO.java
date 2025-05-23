@@ -28,7 +28,6 @@ public class UserDTO {
 
     @Column(nullable = false)
     @NotNull(message = "The sex can't be null")
-    @NotBlank(message = "The sex can't be empty")
     private Boolean sex;
 
     @Column(nullable = false, unique = true, length = 30)
@@ -57,6 +56,5 @@ public class UserDTO {
     private String password;
 
     @NotNull(message = "The role can't be null")
-    @NotBlank(message = "The role can't be empty")
     private Long roleId;
 }
